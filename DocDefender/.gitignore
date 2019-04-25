@@ -1,0 +1,7 @@
+$ cat .gitignore
+log.txt
+desktop.ini
+obj/*
+bin/*
+.vscode/*
+*~
