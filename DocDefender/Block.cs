@@ -29,24 +29,22 @@ namespace DocDefender {
         public string GenerateHash() {
             using (SHA256 sha256Hash = SHA256.Create()) {
                 StringBuilder blockData = new StringBuilder();
-                foreach (Document item in this.documents){
-                    blockData.Append(item);
+                short i = 0;
+                while(i < this.documents.Count) {
+                    blockData.Append(this.documents[i]);
+                    i++;
                 }
                 blockData.Append(this.previous_hash + this.nonce);
-                string hash = GetHash(sha256Hash, blockData.ToString());
-                return hash;
+                return GetHash(sha256Hash, blockData.ToString());
             }
         }
 
         private string GetHash (HashAlgorithm hashAlgorithm, string input) {
             byte[] data = hashAlgorithm.ComputeHash(Encoding.UTF8.GetBytes(input));
-
             StringBuilder sBuilder = new StringBuilder();
-
             for (int i = 0; i < data.Length; i++) {
                 sBuilder.Append (data[i].ToString("x2"));
             }
-
             return sBuilder.ToString();
         }
     }

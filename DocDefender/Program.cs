@@ -12,9 +12,7 @@ namespace DocDefender
     class Program
     {
         static Blockchain blockChain1 = new Blockchain();
-        static void Main(string[] args)
-        {
-            #region Test
+        static void Main(string[] args) {
             Document doc1 = new Document("Doc information", new List<string>(){"DinaryDocData_1", "DinaryDocData_2", "DinaryDocData_3"});
             Document doc2 = new Document("Doc_2 information", new List<string>(){"11", "22", "33"});
             Document doc3 = new Document("Doc_3 information", new List<string>(){"111", "222", "333"});
@@ -27,18 +25,17 @@ namespace DocDefender
             Tools.WriteLineColorized($"{ReadData(brokenSerialized)}", ConsoleColor.Red);
             Tools.WriteLineColorized($"{ReadData(serialized)}", ConsoleColor.Blue);
             
-            Tools.ChainView(blockChain1);
-
-            #endregion
+            // Tools.ChainView(blockChain1);
         }
-        
+        // Reading json data, convert this and add block to chain
         public static string ReadData(string inputSerialize){
             try {
+                // Deserializing document from input string
                 Document doc = JsonConvert.DeserializeObject<Document>(inputSerialize);
-                
+                // Adding document to chain
                 AddToBlockChain(doc);
             }
-            catch (System.Exception ex) {
+            catch (Exception ex) {
                 return $"{ex.Message}";
             }
             return "DONE!";
@@ -48,7 +45,7 @@ namespace DocDefender
             try {
                 blockChain1.AddBlock(new List<Document>(){doc});
             }
-            catch (System.Exception ex) {
+            catch (Exception ex) {
                 return $"{ex.Message}";
             }
             return "DONE!";

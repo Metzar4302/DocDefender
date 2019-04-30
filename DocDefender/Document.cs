@@ -1,10 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-namespace DocDefender{
+namespace DocDefender {
     [Serializable]
-    public class Document
-    {
+    public class Document {
         public string DocInfo { get; set; }
         public List<string> DocsFiles { get; set; }
 
