@@ -1,4 +1,4 @@
-﻿#region Namespaces
+#region Namespaces
 using System;
 using System.Security.Cryptography;
 using System.Text;
