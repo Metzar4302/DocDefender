@@ -44,7 +44,7 @@ namespace DocDefender
         // Reading json data, convert this and add block to chain
         public static void ReadData(string inputSerialize){
             try {
-                Tools.WriteLineColorized($"Processing...", ConsoleColor.DarkBlue);
+                Tools.WriteColorized($"Processing... ", ConsoleColor.DarkBlue);
                 // Deserializing document from input string
                 Document doc = JsonConvert.DeserializeObject<Document>(inputSerialize);
                 // Adding document to chain
