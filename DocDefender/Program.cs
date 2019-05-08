@@ -31,8 +31,10 @@ namespace DocDefender
             // ReadData(brokenSerialized);
             // ReadData(serialized);
             ReadDataArray(serializedArray);
+
+            blockChain1.ValidateChain();
             
-            // Tools.ChainView(blockChain1);
+            Tools.ChainView(blockChain1);
         }
         public static void ReadDataArray(string[] inputSerializes){
             for (int i = 0; i < inputSerializes.Length; i++) {
