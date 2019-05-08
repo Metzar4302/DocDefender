@@ -32,7 +32,7 @@ namespace DocDefender
                 Block current = this.Chain[i];
                 Block previous = this.Chain[i-1];
                 if (current.hash != current.GenerateHash()){
-                    PrintWithColor("The current hash of the block does not equal the generated hash of the block", ConsoleColor.Red);
+                    PrintWithColor($"{current.timestamp} The current hash of the block does not equal the generated hash of the block", ConsoleColor.Red);
                     return false;
                 }
                 if (previous.hash != previous.GenerateHash()){
@@ -40,7 +40,7 @@ namespace DocDefender
                     return false;
                 }
             }
-            PrintWithColor("Hash validation complete!", ConsoleColor.Green);
+            PrintWithColor($"Hash validation complete! {chain.Count} elements [with started-zero]", ConsoleColor.Green);
             return true;
         }
 

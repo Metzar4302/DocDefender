@@ -4,6 +4,7 @@ namespace DocDefender
 {
     public static class Tools
     {
+        public static int difficult = 4;
         public static void WriteLineColorized(string message, ConsoleColor color){
             lock (Console.Out)
             {
