@@ -12,7 +12,6 @@ namespace DocDefender
             set { chain = value;}
         }
         
-        
         public Blockchain(){
             GenesisBlock();
         }
