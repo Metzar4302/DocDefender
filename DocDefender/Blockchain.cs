@@ -40,7 +40,7 @@ namespace DocDefender
                     return false;
                 }
             }
-            PrintWithColor($"Hash validation complete! {chain.Count} elements [with started-zero]", ConsoleColor.Green);
+            PrintWithColor($"Hash validation complete! {chain.Count} elements", ConsoleColor.Green);
             return true;
         }
 

@@ -11,7 +11,7 @@ namespace DocDefender {
         public List<Document> documents;
         public readonly string previous_hash;
         public readonly string hash;
-        public int nonce;
+        private int nonce;
         public DateTime timestamp = DateTime.Now;
 
         public override string ToString() {
@@ -19,6 +19,7 @@ namespace DocDefender {
         }
 
         public Block (List<Document> documents, string previous_hash, int nonce = 0) {
+            // Use binary docs data or hashes (?) 
             this.documents = documents;
             this.previous_hash = previous_hash;
             this.nonce = nonce;
@@ -38,9 +39,12 @@ namespace DocDefender {
                 }
                 bool flag = true;
                 do {
+                    // Clear stringBuilder for add new nonce
                     tmp.Clear();
+                    // Create one big string for hashing
                     tmp.Append(blockData.ToString() + this.previous_hash + this.nonce);
                     result = GetHash(sha256Hash, tmp.ToString());
+                    // If first [Tools.difficult] characterts is not nulls regenerate hash 
                     if (result.Substring(0, Tools.difficult) != new string('0', Tools.difficult)) {
                         this.nonce++;
                     }
